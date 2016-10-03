@@ -23,6 +23,12 @@ class Meteor:
     def get_y(self):
         return self.y
 
+    def get_bound_x(self):
+        return self.sprite.get_size()[0] + self.x
+
+    def get_bound_y(self):
+        return self.sprite.get_size()[1] + self.y
+
     def update(self):
         self.y += self.speed
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import os
+from random import randint
 
 import pygame
 import sys
@@ -23,7 +24,7 @@ class Controller:
         self.width = 500
         self.lives = 3
         self.bullet_speed = 10
-        self.meteor_ratio = 60
+        self.meteor_ratio = 45
         self.ticks_counter = 0
 
         pygame.init()
@@ -118,5 +119,7 @@ class Controller:
 
         self.ticks_counter += 1
         if self.ticks_counter >= self.meteor_ratio:
-            self.meteors.append(Meteor(100, 0, 1, self.meteors_images[1]))
+            sprite = self.meteors_images[randint(0, 5)]
+            x_position = randint(0, self.width - sprite.get_size()[0])
+            self.meteors.append(Meteor(x_position, 0, 5, sprite))
             self.ticks_counter = 0

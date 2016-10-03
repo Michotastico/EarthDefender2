@@ -25,7 +25,8 @@ class Bullet:
         return self.validity
 
     def impact(self, meteor):
-        return True
+        return meteor.get_y() <= self.y <= meteor.get_bound_y() and \
+               meteor.get_x() <= self.x <= meteor.get_bound_x()
 
     def draw(self, bg):
         pygame.draw.rect(bg, (255, 255, 0), (self.x, self.y, 1, self.speed))
