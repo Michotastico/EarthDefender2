@@ -24,5 +24,8 @@ class Spaceship:
     def get_x(self):
         return self.x
 
+    def get_firing_coord(self):
+        return self.x + self.get_ship_width()/2
+
     def draw(self, bg):
         bg.blit(self.sprite, (int(self.x), int(self.y)))

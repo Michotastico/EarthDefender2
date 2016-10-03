@@ -24,8 +24,11 @@ class Controller:
         self.width = 500
         self.lives = 3
         self.bullet_speed = 10
+        self.bullet_sy = 10
+        self.bullet_sx = [-5, -3, 0, 3, 5]
         self.meteor_ratio = 45
         self.ticks_counter = 0
+        self.special_charges_attack = 5
 
         pygame.init()
         self.win = pygame.display.set_mode([self.width, self.height])
@@ -102,15 +105,21 @@ class Controller:
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.pew_sound.play()
-                self.bullets.append(Bullet(self.ship.get_x(), self.ship.get_y(), self.bullet_speed))
+                self.bullets.append(Bullet(self.ship.get_firing_coord(), self.ship.get_y(), 0, self.bullet_speed))
 
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
 
-            if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
                     pygame.quit()
                     sys.exit()
+                if event.key == pygame.K_SPACE and self.special_charges_attack > 0:
+                    self.special_charges_attack -= 1
+                    for speed_x in self.bullet_sx:
+                        self.bullets.append(Bullet(self.ship.get_firing_coord(), self.ship.get_y(),
+                                                   speed_x, self.bullet_sy))
 
         if self.lives <= 0:
             print 'GAME OVER'
