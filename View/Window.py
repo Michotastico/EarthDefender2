@@ -28,11 +28,3 @@ class Window:
             meteor.draw(self.win)
 
         pygame.display.flip()
-
-
-
-
-
-
-
-

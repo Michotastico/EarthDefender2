@@ -14,4 +14,4 @@ program = Controller()
 
 while True:
     program.update()
-    pygame.time.wait(1000/30) # 30 fps
+    pygame.time.wait(1000/30)

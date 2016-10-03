@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import pygame
 
 __author__ = "Michel Llorens"
 __license__ = "GPL"
@@ -46,4 +45,3 @@ class Meteor:
 
     def draw(self, bg):
         bg.blit(self.sprite, (int(self.x), int(self.y)))
-
