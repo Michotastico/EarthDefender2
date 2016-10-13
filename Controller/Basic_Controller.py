@@ -35,23 +35,23 @@ class Controller:
         pygame.display.set_caption('Earth Defender!')
 
         ship_image = pygame.image.load(os.path.join("Resources/ship.png"))
-        ship_image.convert()
+        ship_image = ship_image.convert_alpha()
         planet_image = pygame.image.load(os.path.join("Resources/planet.png"))
         planet_image = pygame.transform.scale(planet_image, (self.height, self.height))
-        planet_image.convert()
+        planet_image = planet_image.convert()
 
         meteor_1 = pygame.image.load(os.path.join("Resources/Meteors/m1.png"))
-        meteor_1.convert()
+        meteor_1 = meteor_1.convert_alpha()
         meteor_2 = pygame.image.load(os.path.join("Resources/Meteors/m2.png"))
-        meteor_2.convert()
+        meteor_2 = meteor_2.convert_alpha()
         meteor_3 = pygame.image.load(os.path.join("Resources/Meteors/m3.png"))
-        meteor_3.convert()
+        meteor_3 = meteor_3.convert_alpha()
         meteor_4 = pygame.image.load(os.path.join("Resources/Meteors/m4.png"))
-        meteor_4.convert()
+        meteor_4 = meteor_4.convert_alpha()
         meteor_5 = pygame.image.load(os.path.join("Resources/Meteors/m5.png"))
-        meteor_5.convert()
+        meteor_5 = meteor_5.convert_alpha()
         meteor_6 = pygame.image.load(os.path.join("Resources/Meteors/m6.png"))
-        meteor_6.convert()
+        meteor_6 = meteor_6.convert_alpha()
 
         self.meteors_images = [meteor_1, meteor_2, meteor_3, meteor_4, meteor_5, meteor_6]
 
